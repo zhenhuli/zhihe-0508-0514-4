@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>铁路线路拓扑模拟</title>
+</head>
+<body>
+  <div class="app-container">
+    <main class="canvas-container">
+      <svg id="canvas" class="canvas"></svg>
+    </main>
+    
+    <div class="floating-toolbar" id="floatingToolbar">
+      <button class="toggle-btn" id="toggleToolbar">
+        <span class="icon">⚙</span>
+      </button>
+      <div class="toolbar-content">
+        <h1>铁路线路拓扑模拟</h1>
+        <div class="tools">
+          <button id="addStationBtn" class="btn btn-primary">添加站点</button>
+          <button id="connectModeBtn" class="btn">连线模式</button>
+          <button id="addTrainBtn" class="btn">添加车次</button>
+          <button id="clearBtn" class="btn btn-danger">清空</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="floating-panel" id="floatingPanel">
+      <button class="toggle-btn" id="togglePanel">
+        <span class="icon">☰</span>
+      </button>
+      <div class="panel-content">
+        <div class="panel">
+          <h3>操作说明</h3>
+          <ul>
+            <li>点击"添加站点"创建新站点</li>
+            <li>拖拽站点可移动位置</li>
+            <li>点击"连线模式"后，依次点击两个站点进行连接</li>
+            <li>点击"添加车次"标注车次走向</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>站点列表</h3>
+          <div id="stationList"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

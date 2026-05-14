@@ -1,0 +1,274 @@
+*
+  margin 0
+  padding 0
+  box-sizing border-box
+
+body
+  font-family -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif
+  background #f5f5f5
+  overflow hidden
+
+.app-container
+  position relative
+  width 100vw
+  height 100vh
+
+.canvas-container
+  position absolute
+  top 0
+  left 0
+  width 100%
+  height 100%
+  background #fff
+
+.canvas
+  width 100%
+  height 100%
+  cursor default
+
+  &.connect-mode
+    cursor crosshair
+
+  &.train-mode
+    cursor pointer
+
+.floating-toolbar
+  position absolute
+  top 20px
+  left 20px
+  z-index 100
+  display flex
+  align-items flex-start
+  transition all 0.3s ease
+
+  &.collapsed
+    .toolbar-content
+      opacity 0
+      transform translateX(-20px)
+      pointer-events none
+      margin-left 0
+
+  .toggle-btn
+    width 44px
+    height 44px
+    border none
+    border-radius 8px
+    background rgba(44, 62, 80, 0.95)
+    color white
+    cursor pointer
+    display flex
+    align-items center
+    justify-content center
+    font-size 20px
+    box-shadow 0 2px 10px rgba(0, 0, 0, 0.2)
+    transition all 0.2s ease
+    z-index 2
+
+    &:hover
+      background #3498db
+      transform scale(1.05)
+
+  .toolbar-content
+    background rgba(44, 62, 80, 0.95)
+    color white
+    padding 15px 20px
+    border-radius 8px
+    margin-left 10px
+    box-shadow 0 2px 10px rgba(0, 0, 0, 0.2)
+    transition all 0.3s ease
+    backdrop-filter blur(10px)
+
+    h1
+      font-size 1.1rem
+      font-weight 500
+      margin-bottom 10px
+      white-space nowrap
+
+    .tools
+      display flex
+      gap 8px
+      flex-wrap wrap
+
+.floating-panel
+  position absolute
+  top 20px
+  right 20px
+  z-index 100
+  display flex
+  align-items flex-start
+  transition all 0.3s ease
+
+  &.collapsed
+    .panel-content
+      opacity 0
+      transform translateX(20px)
+      pointer-events none
+      margin-right 0
+
+  .toggle-btn
+    width 44px
+    height 44px
+    border none
+    border-radius 8px
+    background rgba(255, 255, 255, 0.95)
+    color #2c3e50
+    cursor pointer
+    display flex
+    align-items center
+    justify-content center
+    font-size 20px
+    box-shadow 0 2px 10px rgba(0, 0, 0, 0.15)
+    transition all 0.2s ease
+    z-index 2
+
+    &:hover
+      background #3498db
+      color white
+      transform scale(1.05)
+
+  .panel-content
+    background rgba(255, 255, 255, 0.95)
+    padding 15px
+    border-radius 8px
+    margin-right 10px
+    box-shadow 0 2px 10px rgba(0, 0, 0, 0.15)
+    transition all 0.3s ease
+    backdrop-filter blur(10px)
+    max-height calc(100vh - 40px)
+    overflow-y auto
+    width 260px
+
+.btn
+  padding 8px 14px
+  border none
+  border-radius 6px
+  cursor pointer
+  font-size 0.85rem
+  font-weight 500
+  transition all 0.2s ease
+  white-space nowrap
+
+  &:hover
+    transform translateY(-1px)
+    box-shadow 0 2px 8px rgba(0, 0, 0, 0.2)
+
+  &.btn-primary
+    background #3498db
+    color white
+
+  &.btn-danger
+    background #e74c3c
+    color white
+
+  &.active
+    background #27ae60
+    color white
+
+.panel
+  margin-bottom 15px
+
+  &:last-child
+    margin-bottom 0
+
+  h3
+    color #2c3e50
+    margin-bottom 10px
+    font-size 0.95rem
+    padding-bottom 8px
+    border-bottom 2px solid #3498db
+
+  ul
+    list-style none
+    font-size 0.8rem
+    color #7f8c8d
+
+    li
+      margin-bottom 6px
+      padding-left 1rem
+      position relative
+
+      &::before
+        content '•'
+        position absolute
+        left 0
+        color #3498db
+
+.station
+  cursor move
+  user-select none
+
+  circle
+    fill #3498db
+    stroke #2980b9
+    stroke-width 3
+    transition all 0.2s ease
+
+  text
+    fill #2c3e50
+    font-size 12px
+    font-weight 500
+    text-anchor middle
+    pointer-events none
+
+  &:hover circle
+    fill #5dade2
+    r 18
+
+  &.selected circle
+    fill #27ae60
+    stroke #229954
+
+  &.highlight circle
+    fill #f39c12
+    stroke #e67e22
+
+.rail-line
+  stroke #7f8c8d
+  stroke-width 4
+  fill none
+  stroke-linecap round
+  stroke-linejoin round
+
+.train-path
+  stroke #e74c3c
+  stroke-width 2
+  fill none
+  stroke-dasharray 8,4
+  stroke-linecap round
+
+.train-label
+  font-size 11px
+  font-weight 600
+  fill #e74c3c
+
+.station-list-item
+  padding 8px 10px
+  background #f8f9fa
+  border-radius 4px
+  margin-bottom 6px
+  font-size 0.8rem
+  display flex
+  justify-content space-between
+  align-items center
+  transition background 0.2s ease
+
+  &:hover
+    background #e9ecef
+
+  .delete-btn
+    background #e74c3c
+    color white
+    border none
+    width 18px
+    height 18px
+    border-radius 50%
+    cursor pointer
+    font-size 10px
+    display flex
+    align-items center
+    justify-content center
+    transition all 0.2s ease
+
+    &:hover
+      background #c0392b
+      transform scale(1.1)
