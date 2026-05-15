@@ -1,0 +1,9 @@
+{
+  "pid": 7264,
+  "startedAt": 1778818785648,
+  "command": "dev",
+  "cwd": "/Users/lizhenhu/Desktop/zhihe-0508-0514-4/costume-color-match",
+  "port": 3004,
+  "hostname": "::1",
+  "url": "http://[::1]:3004"
+}
